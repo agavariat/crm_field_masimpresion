@@ -16,6 +16,7 @@
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field name="vat"/>
+                <field name="tamemp"/>
             </field>
         </field>
     </record>
