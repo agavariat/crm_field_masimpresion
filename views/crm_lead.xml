@@ -6,6 +6,10 @@
         <field name="arch" type="xml">
             <field name="team_id" position="after">
                 <field name="tamemp"/>
+                <field name="linea"/>
+                <field name="sec"/>
+                <field name="client"/>
+                <field name="com"/>
             </field>
         </field>
     </record>
@@ -16,6 +20,10 @@
         <field name="arch" type="xml">
             <field name="team_id" position="after">
                 <field name="tamemp"/>
+                <field name="linea"/>
+                <field name="sec"/>
+                <field name="client"/>
+                <field name="com"/>
             </field>
         </field>
     </record>
