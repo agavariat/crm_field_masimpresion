@@ -4,54 +4,6 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
         <field name="arch" type="xml">
-             <xpath expr="//group/group[2]" position="replace">
-            <group attrs="{'invisible': [('type', '=', 'lead')]}">
-                                <field name="partner_id"
-                                    widget="res_partner_many2one"
-                                    string="Propietario"
-                                    context="{'res_partner_search_mode': type == 'opportunity' and 'customer' or False,
-                                        'default_name': x_nombre or x_nombre_negocio,
-                                        'default_street': street,
-                                        'default_is_company': type == 'opportunity' and contact_name == False,
-                                        'default_company_name': type == 'opportunity' and partner_name,
-                                        'default_street2': street2,
-                                        'default_city': city,
-                                        'default_title': title,
-                                        'default_state_id': state_id,
-                                        'default_zip': zip,
-                                        'default_country_id': country_id,
-                                        'default_function': function,
-                                        'default_phone': phone,
-                                        'default_mobile': mobile,
-                                        'default_email': email_from,
-                                        'default_tamemp': tamemp,
-                                        
-                                       
-                                    }"
-                                />
-                                <field name="is_blacklisted" invisible="1"/>
-                                <field name="partner_is_blacklisted" invisible="1"/>
-                                <label for="email_from" class="oe_inline"/>
-                                <div class="o_row o_row_readonly">
-                                    <i class="fa fa-ban" style="color: red;" role="img" title="This email is blacklisted for mass mailing"
-                                        aria-label="Blacklisted" attrs="{'invisible': ['|', ('is_blacklisted', '=', False), ('partner_address_email', '!=', False)]}" groups="base.group_user"/>
-                                    <field name="email_from"
-                                        attrs="{'invisible': [('partner_address_email', '!=', False)]}" string="Email" widget="email"/>
-                                    <i class="fa fa-ban" style="color: red;" role="img" title="This email is blacklisted for mass mailing"
-                                        aria-label="Blacklisted" attrs="{'invisible': ['|', ('partner_is_blacklisted', '=', False), ('partner_address_email', '=', False)]}" groups="base.group_user"/>
-                                    <field name="partner_address_email"
-                                        attrs="{'invisible': [('partner_address_email', '==', False)]}" widget="email" string="Email"/>
-                                </div>
-                                <field string="Phone"
-                                    name="partner_address_phone"
-                                    widget="phone" options="{'enable_sms': True}"
-                                    readonly="1"
-                                    attrs="{'invisible': [('partner_address_phone', '==', False)]}"/>
-                                <field name="mobile" string="Teléfono Celular"
-                                    widget="phone" options="{'enable_sms': True}"
-                                    attrs="{'invisible':  [('partner_address_phone', '!=', False)]}"/>
-                            </group>
-                      </xpath>
 
 
             <field name="team_id" position="after">
@@ -68,6 +20,50 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
         <field name="arch" type="xml">
+             <xpath expr="//group/group[1]" position="replace">
+                     <group>
+                                <field name="partner_id"
+                                    widget="res_partner_many2one"
+                                    string="Customer" domain="[('customer', '=', True)]"
+                                    context="{'search_default_customer': 1,
+                                        'default_name': partner_name, 'default_street': street,
+                                        'default_street2': street2, 'default_city': city,
+                                        'default_state_id': state_id, 'default_zip': zip,
+                                        'default_country_id': country_id, 'default_function': function,
+                                        'default_phone': phone, 'default_mobile': mobile,
+                                        'default_email': email_from,
+                                        'default_user_id': user_id, 'default_team_id': team_id, 'default_website': website,
+                                        'show_vat': True,
+                                    }"
+                                />
+                                <field name="is_blacklisted" invisible="1"/>
+                                <field name="partner_is_blacklisted" invisible="1"/>
+                                <label for="email_from" class="oe_inline"/>
+                                <div class="o_row o_row_readonly">
+                                    <i class="fa fa-ban" style="color: red;" role="img" title="This email is blacklisted for mass mailing"
+                                        aria-label="Blacklisted" attrs="{'invisible': ['|', ('is_blacklisted', '=', False), ('partner_address_email', '!=', False)]}" groups="base.group_user"></i>
+                                    <field name="email_from"
+                                       attrs="{'invisible': [('partner_address_email', '!=', False)]}"
+                                       string="Email"
+                                       widget="email"/>
+                                    <i class="fa fa-ban" style="color: red;" role="img" title="This email is blacklisted for mass mailing"
+                                        aria-label="Blacklisted" attrs="{'invisible': ['|', ('partner_is_blacklisted', '=', False), ('partner_address_email', '=', False)]}" groups="base.group_user"></i>
+                                    <field name="partner_address_email"
+                                       attrs="{'invisible': [('partner_address_email', '==', False)]}"
+                                       widget="email"
+                                       string="Email"/>
+                                </div>
+                                <field name="partner_address_phone"
+                                       attrs="{'invisible': [('partner_address_phone', '==', False)]}"
+                                       readonly="1"
+                                       widget="phone"
+                                       string="Phone"/>
+                                <field name="phone"
+                                       attrs="{'invisible': [('partner_address_phone', '!=', False)]}"
+                                       widget="phone"/>
+                            </group>
+                      </xpath>
+
             <field name="team_id" position="after">
                 <field name="tamemp"/>
                 <field name="linea" widget="many2many_tags"/>
