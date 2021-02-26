@@ -4,18 +4,6 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
         <field name="arch" type="xml">
-            <xpath expr="//group/group[2]" position="replace">
-            <group attrs="{'invisible': [('type', '=', 'lead')]}">
-                                <field name="partner_id"
-                                    widget="res_partner_many2one"
-                                    string="Propietario"
-                                    context="{'res_partner_search_mode': type == 'opportunity' and 'customer' or False,
-                                        'default_street': tamemp,
-                                    }"
-                                />
-                                
-                            </group>
-                      </xpath>
             <field name="team_id" position="after">
                 <field name="tamemp"/>
                 <field name="linea" widget="many2many_tags"/>
