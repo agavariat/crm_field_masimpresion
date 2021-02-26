@@ -10,23 +10,9 @@
                                     widget="res_partner_many2one"
                                     string="Propietario"
                                     context="{'res_partner_search_mode': type == 'opportunity' and 'customer' or False,
-                                        'default_name': x_nombre or x_nombre_negocio,
                                         'default_street': street,
-                                        'default_is_company': type == 'opportunity' and contact_name == False,
-                                        'default_company_name': type == 'opportunity' and partner_name,
                                         'default_street2': street2,
                                         'default_city': city,
-                                        'default_title': title,
-                                        'default_state_id': state_id,
-                                        'default_zip': zip,
-                                        'default_country_id': country_id,
-                                        'default_function': function,
-                                        'default_phone': phone,
-                                        'default_mobile': mobile,
-                                        'default_email': email_from,
-                                        'default_team_id': team_id,
-                                        'default_doctype': doctype,
-                                    }"
                                 />
                             </group>
             </xpath>
