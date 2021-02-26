@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <field name="team_id" position="after">
                 <field name="tamemp"/>
-                <field name="linea"/>
+                <field name="linea" widget="many2many_tags"/>
                 <field name="sec"/>
                 <field name="client"/>
                 <field name="com"/>
@@ -20,7 +20,7 @@
         <field name="arch" type="xml">
             <field name="team_id" position="after">
                 <field name="tamemp"/>
-                <field name="linea"/>
+                <field name="linea" widget="many2many_tags"/>
                 <field name="sec"/>
                 <field name="client"/>
                 <field name="com"/>
