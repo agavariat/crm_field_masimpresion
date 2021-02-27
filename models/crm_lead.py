@@ -45,6 +45,7 @@ class Lead(models.Model):
             ('20', 'Turismo'),
             ('21', 'Salud'),
             ('22', 'Logistica y Distribución'),
+            ('23', 'Otros')
 
         ], "Sector",
     )
