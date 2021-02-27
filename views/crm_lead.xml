@@ -35,6 +35,10 @@
                                         'default_user_id': user_id, 'default_team_id': team_id, 'default_website': website,
                                         'show_vat': True,
                                         'default_tamemp': tamemp,
+                                        'default_sec': sec,
+                                        'default_linea': linea,
+                                        'default_client': client,
+                                        'default_com': com,
                                     }"
                                 />
                                 <field name="is_blacklisted" invisible="1"/>
